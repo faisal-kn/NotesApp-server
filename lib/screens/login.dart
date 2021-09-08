@@ -99,12 +99,27 @@ class _LoginState extends State<Login> {
         SizedBox(
           height: 30,
         ),
-        Text(
-          'New User? Create Account',
-          style: TextStyle(
-            color: normalTextColor,
-            fontSize: normalTextSizeSmall,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'New User? ',
+              style: TextStyle(
+                color: normalTextColor,
+                fontSize: normalTextSizeSmall,
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Create Account',
+                style: TextStyle(
+                  color:headerTextColor,
+                  fontSize:normalTextSizeSmall,
+                ),
+              ),
+            ),
+          ],
         ),
       ]),
     );
