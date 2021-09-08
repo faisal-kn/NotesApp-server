@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/screens/notesdisp.dart';
 
+import 'constant.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: headerText)
+          ),
+        )
+    ),
     home: DisplayNotes(notes: [
       Note('a', 'a1', 120),
       Note('b', 'b1', 180),

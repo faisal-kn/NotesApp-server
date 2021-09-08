@@ -21,8 +21,8 @@ class DisplayNotes extends StatefulWidget {
 class _DisplayNotesState extends State<DisplayNotes> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return
+       Scaffold(
           backgroundColor: Color(0xff1F1D2C),
           appBar: AppBar(
             title: Padding(
@@ -56,10 +56,8 @@ class _DisplayNotesState extends State<DisplayNotes> {
             backgroundColor: Color(0x001F1D2C),
             elevation: 0,
           ),
-          body: SafeArea(
-              child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-            child: Column(
+          body:
+            Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
@@ -74,7 +72,8 @@ class _DisplayNotesState extends State<DisplayNotes> {
                             fontWeight: FontWeight.w900,
                             color: Color(0xFFF6C05C),
                           ),
-                        )),
+                        ),
+                     ),
                     TextButton(
                         onPressed: () {},
                         child: Text(
@@ -84,21 +83,22 @@ class _DisplayNotesState extends State<DisplayNotes> {
                             fontWeight: FontWeight.w900,
                             color: Color(0xFF4E4C5A),
                           ),
-                        )),
+                        ),),
                   ],
                 ),
-                StaggeredGridView.countBuilder(
-                  staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
-                  mainAxisSpacing: 30,
-                  crossAxisSpacing: 30,
-                  crossAxisCount: 2,
-                  itemCount: widget.notes.length,
-                  itemBuilder: (context, index) =>
-                      NoteCard(note: widget.notes[index]),
+                Expanded(
+                  child: StaggeredGridView.countBuilder(
+                    staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
+                    mainAxisSpacing: 30,
+                    crossAxisSpacing: 30,
+                    crossAxisCount: 2,
+                    itemCount: widget.notes.length,
+                    itemBuilder: (context, index) =>
+                        NoteCard(note: widget.notes[index]),
+                  ),
                 ),
               ],
             ),
-          ))),
-    );
+          );
   }
 }
