@@ -12,9 +12,9 @@ class NoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var random = Random();
     return Container(
-      // height: (180 + random.nextInt(100)).toDouble(),
+      height: (180 + random.nextInt(100)).toDouble(),
       // height:180.0,
-        height: MediaQuery.of(context).size.width,
+      //   height: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: allCardColor,
@@ -44,7 +44,7 @@ class NoteCard extends StatelessWidget {
             SizedBox(height: 20),
             Expanded(
               child: Wrap(
-                direction: Axis.horizontal,
+                direction: Axis.vertical,
                 children: [
                   Text(
                     note.author,
