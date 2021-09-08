@@ -84,8 +84,8 @@ class _DisplayNotesState extends State<DisplayNotes> {
               padding: const EdgeInsets.all(8.0),
               child: StaggeredGridView.countBuilder(
                 staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
-                mainAxisSpacing: 30,
-                crossAxisSpacing: 30,
+                mainAxisSpacing: 25,
+                crossAxisSpacing: 25,
                 crossAxisCount: 2,
                 itemCount: widget.notes.length,
                 itemBuilder: (context, index) =>
