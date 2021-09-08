@@ -14,13 +14,34 @@ void main() {
           UnderlineInputBorder(borderSide: BorderSide(color: headerTextColor)),
     )),
     home: DisplayNotes(notes: [
-      Note('title1', 'description1', 'author1'),
-      Note('title2', 'description2', 'author2'),
-      Note('title3', 'description3', 'author3'),
-      Note('title4', 'description4', 'author4'),
-      Note('title5', 'description5', 'author5'),
-      Note('title6', 'description6', 'author6'),
-      Note('title7', 'description7', 'author7'),
+      Note(
+          'title1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat ',
+          'author1'),
+      Note(
+          'title2',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+          'author2'),
+      Note(
+          'title3',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+          'author3'),
+      Note(
+          'title4',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+          'author4'),
+      Note(
+          'title5',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+          'author5'),
+      Note(
+          'title6',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+          'author6'),
+      Note(
+          'title7',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+          'author7'),
     ]),
     // home: Login(),
   ));
