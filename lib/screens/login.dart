@@ -21,8 +21,8 @@ class _LoginState extends State<Login> {
           child: Text(
             'Login',
             style: TextStyle(
-              color: headerText,
-              fontSize: 33.0,
+              color: headerTextColor,
+              fontSize: headerTextSize,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -38,20 +38,19 @@ class _LoginState extends State<Login> {
           child: TextField(
             decoration: InputDecoration(
               // border: OutlineInputBorder(),
-              border:UnderlineInputBorder(
+              border: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    color: normalText,
-                  )
-              ),
+                color: normalTextColor,
+              )),
               labelText: 'Email',
               hintText: 'Enter valid email id as abc@gmail.com',
               labelStyle: TextStyle(
-                color: headerText,
+                color: headerTextColor,
               ),
-              hintStyle: TextStyle(color: normalText),
+              hintStyle: TextStyle(color: normalTextColor),
             ),
             style: TextStyle(
-              color: normalText,
+              color: normalTextColor,
             ),
           ),
         ),
@@ -65,9 +64,9 @@ class _LoginState extends State<Login> {
               labelText: 'Password',
               hintText: 'Enter secure password',
               labelStyle: TextStyle(
-                color: headerText,
+                color: headerTextColor,
               ),
-              hintStyle: TextStyle(color: normalText),
+              hintStyle: TextStyle(color: normalTextColor),
             ),
           ),
         ),
@@ -80,7 +79,8 @@ class _LoginState extends State<Login> {
           },
           child: Text(
             'Forgot Password',
-            style: TextStyle(color: normalText, fontSize: 15),
+            style: TextStyle(
+                color: normalTextColor, fontSize: normalTextSizeSmall),
           ),
         ),
         Container(
@@ -92,17 +92,20 @@ class _LoginState extends State<Login> {
             onPressed: () {},
             child: Text(
               'Login',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              style: TextStyle(color: Colors.white, fontSize: normalTextSize),
             ),
           ),
         ),
         SizedBox(
-          height: 130,
+          height: 30,
         ),
-        Text('New User? Create Account',style: TextStyle(
-          color: normalText,
-          fontSize: 17.0,
-        ),),
+        Text(
+          'New User? Create Account',
+          style: TextStyle(
+            color: normalTextColor,
+            fontSize: normalTextSizeSmall,
+          ),
+        ),
       ]),
     );
   }

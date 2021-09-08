@@ -1,15 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:notesapp/constant.dart';
 import 'package:notesapp/widgets/notecard.dart';
-
-class Note {
-  final String title;
-  final String description;
-  double ht = 100;
-  Note(this.title, this.description, this.ht);
-}
+import 'package:notesapp/classes/note.dart';
 
 class DisplayNotes extends StatefulWidget {
   const DisplayNotes({Key? key, required this.notes}) : super(key: key);
@@ -21,84 +15,86 @@ class DisplayNotes extends StatefulWidget {
 class _DisplayNotesState extends State<DisplayNotes> {
   @override
   Widget build(BuildContext context) {
-    return
-       Scaffold(
-          backgroundColor: Color(0xff1F1D2C),
-          appBar: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.fromLTRB(5, 30, 0, 20),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Text('Notes',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 28,
-                            fontFamily: 'Roboto',
-                            color: Colors.white,
-                          ))),
-                  SizedBox(
-                    width: 10,
+    return Scaffold(
+      backgroundColor: Color(0xff1F1D2C),
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.fromLTRB(5, 30, 0, 20),
+          child: Row(
+            children: [
+              Expanded(
+                  child: Text('Notes',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: headerTextSize,
+                        fontFamily: 'Roboto',
+                        color: headerTextColor,
+                      ))),
+              SizedBox(
+                width: 10,
+              ),
+              IconButton(
+                  onPressed: () {
+                    print("hey");
+                  },
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  icon: Icon(
+                    Icons.search,
+                    color: normalTextColor,
+                  )),
+            ],
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Public',
+                  style: TextStyle(
+                    fontSize: headerTextSizeSmall,
+                    fontWeight: FontWeight.w900,
+                    color: categoryHeaderColor,
                   ),
-                  IconButton(
-                      onPressed: () {
-                        print("hey");
-                      },
-                      highlightColor: Colors.transparent,
-                      splashColor: Colors.transparent,
-                      icon: Icon(
-                        Icons.search,
-                        color: Color(0xFF4E4C5A),
-                      )),
-                ],
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Private',
+                  style: TextStyle(
+                    fontSize: headerTextSizeSmall,
+                    fontWeight: FontWeight.w900,
+                    color: normalTextColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: StaggeredGridView.countBuilder(
+                staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
+                mainAxisSpacing: 30,
+                crossAxisSpacing: 30,
+                crossAxisCount: 2,
+                itemCount: widget.notes.length,
+                itemBuilder: (context, index) =>
+                    NoteCard(note: widget.notes[index]),
               ),
             ),
-            backgroundColor: Color(0x001F1D2C),
-            elevation: 0,
           ),
-          body:
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Public',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
-                            color: Color(0xFFF6C05C),
-                          ),
-                        ),
-                     ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Private',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
-                            color: Color(0xFF4E4C5A),
-                          ),
-                        ),),
-                  ],
-                ),
-                Expanded(
-                  child: StaggeredGridView.countBuilder(
-                    staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
-                    mainAxisSpacing: 30,
-                    crossAxisSpacing: 30,
-                    crossAxisCount: 2,
-                    itemCount: widget.notes.length,
-                    itemBuilder: (context, index) =>
-                        NoteCard(note: widget.notes[index]),
-                  ),
-                ),
-              ],
-            ),
-          );
+        ],
+      ),
+    );
   }
 }
