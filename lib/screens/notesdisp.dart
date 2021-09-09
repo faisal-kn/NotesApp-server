@@ -13,39 +13,46 @@ class DisplayNotes extends StatefulWidget {
 }
 
 class _DisplayNotesState extends State<DisplayNotes> {
+  bool isSearching = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1F1D2C),
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.fromLTRB(5, 30, 0, 20),
-          child: Row(
-            children: [
-              Expanded(
-                  child: Text('Notes',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: headerTextSize,
-                        fontFamily: 'Roboto',
-                        color: headerTextColor,
-                      ))),
-              SizedBox(
-                width: 10,
-              ),
-              IconButton(
-                  onPressed: () {
-                    print("hey");
-                  },
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  icon: Icon(
-                    Icons.search,
-                    color: normalTextColor,
-                  )),
-            ],
-          ),
-        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  this.isSearching = !this.isSearching;
+                });
+              },
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              icon: Icon(
+                Icons.search,
+                color: normalTextColor,
+              )),
+        ],
+        title: isSearching
+            ? TextField(
+                onSubmitted: (e) {
+                  print(e);
+                },
+                autofocus: true,
+                style: TextStyle(color: normalTextColor),
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  hintStyle: TextStyle(color: normalTextColor),
+                  border: InputBorder.none,
+                ))
+            : Text('Notes',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: headerTextSize,
+                  fontFamily: 'Roboto',
+                  color: headerTextColor,
+                )),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -84,8 +91,8 @@ class _DisplayNotesState extends State<DisplayNotes> {
               padding: const EdgeInsets.all(8.0),
               child: StaggeredGridView.countBuilder(
                 staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
-                mainAxisSpacing: 25,
-                crossAxisSpacing: 25,
+                mainAxisSpacing: 30,
+                crossAxisSpacing: 30,
                 crossAxisCount: 2,
                 itemCount: widget.notes.length,
                 itemBuilder: (context, index) =>
