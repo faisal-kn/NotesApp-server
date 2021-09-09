@@ -107,28 +107,28 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 50,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'New User? ',
-                  style: TextStyle(
-                    color: normalTextColor,
-                    fontSize: normalTextSizeSmall,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Create Account',
-                    style: TextStyle(
-                      color:headerTextColor,
-                      fontSize:normalTextSizeSmall,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Text(
+            //       'New User? ',
+            //       style: TextStyle(
+            //         color: normalTextColor,
+            //         fontSize: normalTextSizeSmall,
+            //       ),
+            //     ),
+            //     TextButton(
+            //       onPressed: () {},
+            //       child: Text(
+            //         'Create Account',
+            //         style: TextStyle(
+            //           color:headerTextColor,
+            //           fontSize:normalTextSizeSmall,
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ]),
         ),
       ),
