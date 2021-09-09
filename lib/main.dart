@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/classes/note.dart';
 import 'package:notesapp/screens/login.dart';
-import 'package:notesapp/screens/notesdisp.dart';
+import 'package:notesapp/screens/account.dart';
 import 'package:notesapp/screens/signup.dart';
 
 import 'constant.dart';
@@ -45,6 +45,6 @@ void main() {
     //       'author7'),
     // ]),
     // home: Login(),
-       home: Signup(),
+    home: LoginScreen(),
   ));
 }
