@@ -14,64 +14,70 @@ class _LoginScreenState extends State<LoginScreen> {
   bool newAccount = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: AppBar(
-        title: Text('Notes',
-            style: TextStyle(
-              fontWeight: FontWeight.w900,
-              fontSize: headerTextSize,
-              fontFamily: 'Roboto',
-              color: headerTextColor,
-            )),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 50),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    this.newAccount = false;
-                  });
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: headerTextSizeSmall,
-                    fontWeight: FontWeight.w900,
-                    color: categoryHeaderColor,
+    return GestureDetector(
+      onTap: (){
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        backgroundColor: backgroundColor,
+        appBar: AppBar(
+          title: Text('Notes',
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: headerTextSize,
+                fontFamily: 'Roboto',
+                color: headerTextColor,
+              )),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      this.newAccount = false;
+                    });
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: headerTextSizeSmall,
+                      fontWeight: FontWeight.w900,
+                      color: categoryHeaderColor,
+                    ),
                   ),
                 ),
-              ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    this.newAccount = true;
-                  });
-                },
-                child: Text(
-                  'SignUp',
-                  style: TextStyle(
-                    fontSize: headerTextSizeSmall,
-                    fontWeight: FontWeight.w900,
-                    color: normalTextColor,
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      this.newAccount = true;
+                    });
+                  },
+                  child: Text(
+                    'SignUp',
+                    style: TextStyle(
+                      fontSize: headerTextSizeSmall,
+                      fontWeight: FontWeight.w900,
+                      color: normalTextColor,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Expanded(
+              ],
+            ),
+            Expanded(
               child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: !newAccount ? LoginWidget() : SignUpWidget(),
-          )),
-        ],
+                padding: const EdgeInsets.all(8.0),
+                child: !newAccount ? LoginWidget() : SignUpWidget(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
