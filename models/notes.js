@@ -13,6 +13,7 @@ const notesSchema = new mongoose.Schema({
   customUrl: {
     type: String,
     default: nanoid(),
+    unique:[true,'Your url should be unique']
   },
   willexpireAt: {
     type: Date,
