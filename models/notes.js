@@ -13,7 +13,7 @@ const notesSchema = new mongoose.Schema({
   customUrl: {
     type: String,
     default: nanoid(),
-    unique:[true,'Your url should be unique']
+    unique: [true, 'Your url should be unique'],
   },
   willexpireAt: {
     type: Date,
@@ -22,7 +22,12 @@ const notesSchema = new mongoose.Schema({
   },
   pasteTitle: {
     type: String,
-    required:[true,'A paste must have a title']
+    required: [true, 'A paste must have a title'],
+  },
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: [true, 'A booking must have a user'],
   },
 });
 

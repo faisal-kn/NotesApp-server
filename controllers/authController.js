@@ -98,6 +98,5 @@ exports.protect = async (req, res, next) => {
       'User belonging to this token has been deleted from our database'
     );
   req.user = user;
-  res.locals.user = user;
   next();
 };
