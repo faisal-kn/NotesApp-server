@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { nanoid } = require('nanoid');
 
 const notesSchema = new mongoose.Schema({
   note: {
@@ -12,7 +11,6 @@ const notesSchema = new mongoose.Schema({
   },
   customUrl: {
     type: String,
-    default: nanoid(),
     unique: [true, 'Your url should be unique'],
   },
   willexpireAt: {
@@ -28,6 +26,11 @@ const notesSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: [true, 'A booking must have a user'],
+  },
+  noteType: {
+    type: String,
+    enum: ['public', 'private'],
+    required: [true, 'A note should have its type'],
   },
 });
 

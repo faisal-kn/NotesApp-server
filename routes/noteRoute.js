@@ -7,7 +7,7 @@ const router = express.Router();
 router
   .route('/')
   .post(authController.protect, notesController.createNote)
-  .get(authController.protect, notesController.getAllNotes);
+  .get(authController.protect, notesController.getAllPublicNotes);
 
 router.route('/:id').get(authController.protect, notesController.getOneNote);
 
