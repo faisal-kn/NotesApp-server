@@ -9,7 +9,7 @@ const noteRouter = require('./routes/noteRoute');
 const app = express();
 
 app.use(express.json());
-app.enable('trust-proxy');
+app.enable('trust proxy');
 
 app.use(cookieParser());
 
