@@ -5,7 +5,7 @@ const { nanoid } = require('nanoid');
 exports.createNote = async (req, res, next) => {
   try {
     if (!req.body.customUrl) req.body.customUrl = nanoid(8);
-    
+
     const note = await Note.create({ ...req.body, author: req.user.id });
     res.status(200).json({ status: 'success', message: note });
   } catch (err) {
@@ -15,6 +15,7 @@ exports.createNote = async (req, res, next) => {
 
 exports.getAllPublicNotes = async (req, res, next) => {
   try {
+    console.log(2);
     const notes = await Note.find({ noteType: 'public' }).populate({
       path: 'author',
       select: '-__v -passwordCreatedAt',
@@ -31,8 +32,30 @@ exports.getOneNote = async (req, res, next) => {
       path: 'author',
       select: '-__v -passwordCreatedAt',
     });
+
     res.status(200).json({ status: 'success', data: notes });
   } catch (err) {
     res.status(400).json({ status: 'failed', message: err });
+  }
+};
+
+exports.getAllUserNotes = async (req, res, next) => {
+  try {
+    const notes = await Note.find({ author: req.user.id });
+    res.status(200).json({ status: 'success', message: notes });
+  } catch (err) {
+    res.status(401).json({ status: 'failed', message: err });
+  }
+};
+
+exports.deleteNotes = async (req, res, next) => {
+  try {
+    const note = await Note.deleteOne({
+      id: req.params.id,
+      author: req.user.id,
+    });
+    res.status(204).json({ status: 'success', data: null });
+  } catch (err) {
+    res.status(401).json({ status: 'failed', message: err });
   }
 };
