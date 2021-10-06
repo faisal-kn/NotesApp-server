@@ -15,7 +15,6 @@ exports.createNote = async (req, res, next) => {
 
 exports.getAllPublicNotes = async (req, res, next) => {
   try {
-    console.log(2);
     const notes = await Note.find({ noteType: 'public' }).populate({
       path: 'author',
       select: '-__v -passwordCreatedAt',

@@ -23,8 +23,8 @@ app.use(
 app.use(morgan('dev'));
 
 app.use((req, res, next) => {
-  console.log(req.cookie);
-  console.log(req.body);
+  // console.log(req.cookie);
+  // console.log(req.body);
   next();
 });
 
